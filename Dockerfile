@@ -4,7 +4,9 @@ FROM docker.n8n.io/n8nio/n8n:$N8N_VERSION
 
 LABEL maintainer="Xiaoliang <xiaoliang.zero@gmail.com>"
 
-ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \
+    N8N_RUNNERS_ENABLED=true \
+    N8N_PROXY_HOPS=1
 
 # https://huggingface.co/docs/hub/spaces-sdks-docker#permissions
 # The container runs with user ID 1000.
