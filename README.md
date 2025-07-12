@@ -24,17 +24,17 @@ To avoid this, we can use [Supabase](https://supabase.com/) for the database.
 1. Sign up for a free account at <https://supabase.com/dashboard/sign-up>
 2. Create a new project and fill the form. Save the database password for later use.
 
-   ![supabase create project](images/supabase_project_create.png)
-   ![supabase project setting](images/supabase_project_setting.png)
+   ![supabase create project](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/supabase_project_create.png)
+   ![supabase project setting](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/supabase_project_setting.png)
 
 3. View the database connection info by click the **Connect** button on the top left nav bar.
 
-   ![supabase project](images/supabase_project.png)
+   ![supabase project](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/supabase_project.png)
 
 4. Select **SQLAlchemy** as Connection String and find the **Transaction pooler** section.
 
-   ![supabase connection](images/supabase_project_connection.png)
-   ![supabase connection transaction pooler](images/supabase_project_transaction_pooler.png)
+   ![supabase connection](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/supabase_project_connection.png)
+   ![supabase connection transaction pooler](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/supabase_project_transaction_pooler.png)
 
 5. Save the connection info for later use: host, port, user, dbname.
 
@@ -56,11 +56,11 @@ Using this space to duplicate and deploy n8n in the easy way.
 2. Access <https://huggingface.co/spaces/tomowang/n8n> and click the menu drop
    down in top right corner and select **Duplicate this space**.
 
-   ![hf duplicate space](images/hf_duplicate_space.png)
+   ![hf duplicate space](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/hf_duplicate_space.png)
 
 3. Fill or change the variable and secrets in pop-up form and click **Duplicate**.
 
-   ![hf space env](images/hf_space_variables.png)
+   ![hf space env](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/hf_space_variables.png)
 
    | **Variable**             | **Value**                                                |
    | ------------------------ | -------------------------------------------------------- |
@@ -77,12 +77,12 @@ Using this space to duplicate and deploy n8n in the easy way.
 4. Click **Duplicate Space** and wait for the deployment to finish. You can
    find the logs as following
 
-   ![hf space deploy start](images/hf_space_deploy_start.png)
+   ![hf space deploy start](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/hf_space_deploy_start.png)
 
 5. Once the deployment is finished, you can find the URL as configured in the
    `N8N_EDITOR_BASE_URL` variable.
 
-   ![hf space deploy done](images/hf_space_deploy_done.png)
+   ![hf space deploy done](https://tomo.dev/posts/deploy-n8n-for-free-using-huggingface-space/images/hf_space_deploy_done.png)
 
 Now you can access n8n using the URL.
 
