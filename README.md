@@ -74,6 +74,32 @@ Using this space to duplicate and deploy n8n in the easy way.
 
 Now you can access n8n using the URL.
 
+## Fixing Telegram Connection Issues (ENOTFOUND)
+
+Hugging Face Spaces often block direct connections to `api.telegram.org`. If you see a `getaddrinfo ENOTFOUND` error in your Telegram nodes, you can bypass it using a free Google Apps Script proxy:
+
+1. Go to [script.google.com](https://script.google.com/) and create a **New Project**.
+2. Replace the code with:
+   ```javascript
+   function doPost(e) { return doProxy(e); }
+   function doGet(e) { return doProxy(e); }
+   function doProxy(e) {
+     var url = "https://api.telegram.org" + (e.pathInfo ? "/" + e.pathInfo : "");
+     var options = {
+       "method": e.postData ? "post" : "get",
+       "headers": { "Content-Type": "application/json" },
+       "payload": e.postData ? e.postData.contents : null,
+       "muteHttpExceptions": true
+     };
+     var response = UrlFetchApp.fetch(url, options);
+     return ContentService.createTextOutput(response.getContentText()).setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+3. Click **Deploy** > **New Deployment**.
+4. Select **Web App**, set "Execute as" to **Me**, and "Who has access" to **Anyone**.
+5. Copy the **Web App URL**.
+6. In n8n, open your **Telegram Node**, go to **Optional Options**, find **Base URL**, and paste your Google Script URL there.
+
 > n8n use [helmet](https://github.com/helmetjs/helmet) for security headers.
 > In production mode, it will set `X-Frame-Options` to `sameorigin`, which causes
 > the n8n site to be blocked by the iframe in the Huggingface Space.
